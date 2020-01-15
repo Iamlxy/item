@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
+
+    <title>Document</title>
+</head>
+<style>
+    #sub{width: 500px;height: 300px;border: 1px solid red;}
+    #sub2{width: 300px;height: 100px;border: 1px solid blue;}
+</style>
+<body>
+    <div id="app">
+        <div @click.capture="fn1" id="sub">sub
+            <div @click.capture="fn2" id="sub2">sub2
+
+            </div>
+        </div>
+
+    </div>
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+
+            },
+
+            methods: {
+                fn1() {
+                    console.log(111)
+                },
+                fn2(){
+                    console.log(222)
+                }
+            }
+
+        })
+    </script>
+
+
+</body>
+
+</html>

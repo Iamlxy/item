@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
+
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+      <li v-for="(item,index) in arr" :key="item.id">
+          <input type="checkbox">
+            {{item.text}}
+            {{item.id}}
+            <input type="button" value="delete" @click="fn(index)">
+            
+      </li>
+    </div>
+    <script>
+        var app=new Vue({
+            el:"#app",
+            data:{
+                arr:[
+                    {"text":"a","id":1},
+                    {"text":"b","id":2},
+                    {"text":"c","id":3},
+                    {"text":"d","id":4}
+                ]
+            },
+            methods:{
+                fn(index){
+                    this.arr.splice(index,1)
+                }
+            }
+               
+        })
+    </script>
+</body>
+</html>

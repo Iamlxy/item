@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
+    <title>Document</title>
+
+</head>
+
+<body>
+    <div id="app">
+     <comp1></comp1>
+    </div>
+    <script>
+       
+        Vue.component('comp1',{
+            template:`
+            <div style="background: yellow;padding:10px;">comp1  {{a}}
+                <comp2></comp2>
+                </div>
+            `,
+            data(){
+               return {
+                    a:100
+               }
+            },
+       
+        })
+        Vue.component('comp2',{
+            template:`
+            <div style="background: red;padding:10px;">comp2  
+                <comp3></comp3>
+                </div>
+            `
+        })
+        Vue.component('comp3',{
+            template:`
+            <div style="background: blue;padding:10px;">comp3  
+              <button @click="fn">按钮</button>
+                </div>
+            `,
+            methods:{
+                fn(){
+                    this.$parent.$parent.a++
+                }
+            }
+        })
+        var app = new Vue({
+            el: "#app",
+            data:{
+            },
+    
+         
+        })
+    </script>
+
+</body>
+
+</html>

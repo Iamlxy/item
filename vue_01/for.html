@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
+    <title>Document</title>
+
+</head>
+
+<body>
+    <div id="app">
+        <li v-for="(item,index) in arr">{{item}}{{index}}
+            <button @click="del(index)">del</button>
+        </li>
+        <button @click="fn">add</button>
+    </div>
+
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                arr: [{ "text": "a", "id": 1 },
+                { "text": "b", "id": 2 },
+                { "text": "c", "id": 3 },
+                { "text": "d", "id": 4 },
+                { "text": "e", "id": 5 },]
+            },
+            methods: {
+                fn() {
+                    this.arr.push(new Date().getTime())
+                },
+                del(index) {
+                    this.arr.splice(index, 1)
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>

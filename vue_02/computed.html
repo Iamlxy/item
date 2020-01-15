@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
+
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- <div id="app">
+        <input v-model="a">+<input v-model="b">=<span>{{fn}}||||{{fn2()}}</span>
+    </div>
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data() {
+                return {
+                    a: 1,
+                    b: 2,
+                }
+            },
+            computed: {
+                fn() {
+                    return Number(this.a) + Number(this.b)
+                    console.log('computed')
+
+                }
+            },
+            methods: {
+                fn2(){
+                    return Number(this.a) + Number(this.b)
+                    console.log('methods')
+                }
+            }
+
+        })
+    </script> -->
+
+
+    <div id="app">
+           
+            <input type="text" v-model="a" />
+            +
+            <input type="text" v-model="b" />
+            =
+            {{c}} ||||}
+        </div>
+        
+        <script>
+        var vm = new Vue({
+            el:"#app",
+            data(){
+                return {
+                  
+                    a : 1,
+                    b : 2
+                }
+            },
+            computed:{  // 推荐用计算属性 (因为计算属性有缓存)
+                c(){
+                    console.log('c 执行了');
+                    return Number(this.a) + Number(this.b);
+                }
+            },
+            methods:{   // 不推荐用方法
+                d(){
+                    console.log('d 执行了');
+                    // return Number(this.a) + Number(this.b);
+                },
+               
+            }
+        })
+        </script>
+
+</body>
+
+</html>

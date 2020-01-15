@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
+    <title>Document</title>
+
+</head>
+
+<body>
+        <div id="app">
+                <aaa></aaa>
+            </div>
+            <script>
+            // 全局组件
+            Vue.component('aaa', {
+                render( createElement ){
+                    // createElement 创建节点
+                    // return createElement('div', 'hello')
+                    return createElement('div', [
+                        createElement('li', {style:{color:'red'}}, [
+                            createElement('h1', '标题'),
+                        ]),
+                        createElement('li', 'b'),
+                    ])
+                }
+            })    
+        var app = new Vue({
+            el: "#app",
+            components: {//局部组件
+
+            }
+
+        })
+    </script>
+
+</body>
+
+</html>
